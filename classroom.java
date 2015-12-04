@@ -23,9 +23,19 @@ public class classroom
       
       String[] dataRows = markFile.readCSVtable();
       
-      noOfpupil = dataRows.length - 1;
+      noOfPupils = dataRows.length - 1;
       
-      System.out.println("** "+ noOfPupil + " rows read.\n\n");
+      System.out.println("** "+ noOfPupils + " rows read.\n\n");
+      
+      pupilList = new Pupil[noOfPupils];
+      
+      for (int i = 0; i < noOfPupils; i++) {
+          
+          pupilList[i] = new Pupil();
+          
+          pupilList[i].readDetails(dataRows[i+1]);
+          
+        }
     }
     
     public void countOKmark()
